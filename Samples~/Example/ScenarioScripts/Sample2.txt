@@ -1,0 +1,136 @@
+[asset tag="yuko" source="Actors/SpriteActor001"]
+[asset tag="syota" source="Actors/SpriteActor002"]
+
+[asset tag="room" source="Background/BG_001"]
+[asset tag="se_hoge" source="SE/se_maoudamashii_onepoint08"]
+[asset tag="bgm_rock" source="BGM/bgm_maoudamashii_neorock81"]
+[asset tag="image_okayu" source="Images/okayu"]
+
+[bg_new name="room" tag="bg1" asset="room"]
+[bgm_new name="bgm_default" asset="bgm_rock"]
+[sound_new name="se_discovery" asset="se_hoge"]
+[image_new name="okayu" tag="okayu_group" asset="image_okayu"]
+
+; Yuko
+[chara_new name="yuko" asset="yuko" dname="ゆうこ" size=normal]
+[chara_face name="yuko" face="angry" asset="angry"]
+[chara_face name="yuko" face="komaru" asset="sad"]
+[chara_face name="yuko" face="warau" asset="egao"]
+
+; Syota
+[chara_new name="syota" asset="syota" dname="しょうた"]
+[chara_face name="syota" face="angry" asset="angry"]
+[chara_face name="syota" face="komaru" asset="sad"]
+[chara_face name="syota" face="warau" asset="egao"]
+
+;-------------------------------------------------
+
+[eval exp="test1.a=syota"]
+
+[bg_show name=room]
+[bgm_play name="bgm_default" fade=1000]
+
+[show_message]
+[wait time=0.5]
+[chara_show name=yuko time=1 size=small]
+[wait time=1]
+[chara_mod name=yuko region=left time=1 size=big]
+[wait time=1]
+
+[hide_message]
+[chara_mod name=yuko region=right time=1]
+[wait time=1]
+[chara_hide name=yuko time=1]
+[wait time=1]
+[chara_show name=syota region=center time=1]
+[wait time=1]
+
+[mask]
+[wait time = 2]
+[mask_off]
+
+
+#{test1.a}
+おかゆ[p]
+[image_show name=okayu]
+
+#syota
+おかゆ終了[p]
+[image_hide name=okayu]
+
+
+#syota
+さて、、、なにやら新しいゲームエンジンができたとかいうから[p]
+来てみたものの、、、、[p]
+
+[message_shake wait=false]
+[chara_mod name=syota face=komaru]
+
+#syota
+誰もいないな。。。。
+どうしようか。[p]
+[message_shake wait=true]
+;[wait time=2]
+
+[select_new text="帰る" target=*select_a1 ]
+[select_new text="もう少し待つ" target=*select_a2 ]
+[select_new text="歌ってみる" target=*select_a3 ]
+
+[select_show]
+
+[s]
+
+*select_a1
+[chara_hide name="yuko"]
+[chara_show name="syota"]
+#syota
+まぁ、いいや。[font color=#ff0000]帰ろう[p]
+#？
+ちょっと[font bold=true]待ったーーーーーー[font size=40]![p]
+#syota
+誰だ!?[p]
+@jump target=*a_common
+
+*select_a2
+#syota
+もう少し待ってみるか[p]
+#？
+ガラッ。おまたせーーー。[p]
+#syota
+お。[p]
+@jump target=*a_common
+
+*select_a3
+#syota
+・・・・・[l]
+あ、あ〜♫　このょ[p]
+#？
+ガラ[p]
+#syota
+ぎゃ!?誰だ[p]
+
+@jump target=*a_common
+
+*a_common 
+;@show name=syota
+
+[bgm_stop fade=5000]
+
+[chara_show name=yuko region=left]
+[chara_show name=syota region=left]
+[chara_shake name=yuko wait=true]
+
+#yuko
+こんにちは。私の名前はゆうこ[p]
+
+[chara_shake name=syota wait=false]
+
+#syota
+test[p]
+
+[image_show name=okayu]
+
+[camera_shake wait=true]
+
+#
+つづく...[p]

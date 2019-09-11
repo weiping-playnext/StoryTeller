@@ -1,0 +1,25 @@
+{
+  "name": "com.wonderplanet.storyteller",
+  "displayName": "StoryTeller",
+  "version": "0.0.0",
+  "description": "自社開発されたADVパーサー",
+  "keywords": [ "package", "unity", "ADV" ],
+  "category": "Tools",
+  "dependencies": {},
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wonderplanet/unity-story-teller",
+    "revision": "dffdc4cd49b495ba3e9c057a3b696c5e6cae2c49 "
+  },
+  "samples": [
+    {
+      "displayName": "Example",
+
+      "description": "StoryTellerSample",
+
+      "path": "Samples~/Example"
+
+    }
+  ]
+}
